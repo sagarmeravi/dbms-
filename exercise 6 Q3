@@ -1,0 +1,24 @@
+create table dept103(
+deptno number(3) primary key,
+deptname varchar2(15),
+loc varchar2(15)
+);
+insert into dept103 values(1,'sales','baramati');
+insert into dept103 values(2,'marketing','baramati');
+insert into dept103 values(3,'compscience','baramati');
+
+create table emp103(
+    emp_no number(3) primary key,
+    emp_name varchar2(15),
+    addr varchar2(15),
+    sal number(10)check(sal>0),
+    desg varchar2(15),
+    deptno number(3) references dept103(deptno) on delete cascade
+    );
+insert into emp103 values(101,'ranjit','baramati',80000,'hod',1);
+insert into emp103 values(102,'jhadav','baramati',50000,'manager',1);
+insert into emp103 values(103,'rahul','baramati',20000,'supervisor',2);
+insert into emp103 values(104,'manish','baramati',30000,'assistant',3);
+insert into emp103 values(105,'taher','baramati',10000,'clerk',3);
+
+select sum(emp103.sal) from emp103,dept103 where emp103.deptno=dept103.deptno and dept103.deptname='compscience';
