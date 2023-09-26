@@ -22,3 +22,4 @@ insert into emp103 values(104,'manish','baramati',30000,'assistant',3);
 insert into emp103 values(105,'taher','baramati',10000,'clerk',3);
 
 select sum(emp103.sal) from emp103,dept103 where emp103.deptno=dept103.deptno and dept103.deptname='compscience';
+select dept103.deptname from emp103,dept103 where emp103.deptno=dept103.deptno and emp103.sal>10000;
