@@ -12,7 +12,7 @@ create table project101(
     dno number(3) references dept101(dno) on delete cascade
 );
 --department 
-insert into dept101 values(101,'sales','Mr.ronit');
+insert into dept101 values(101,'sales','Mr.desai');
 insert into dept101 values(102,'marketing','Mr.raghav');
 insert into dept101 values(103,'accounting','Mr.yadav');
 select * from dept101
@@ -27,3 +27,14 @@ insert into project101 values(205,'marketing mania','19-september-2023',800000,'
 insert into project101 values(206,'Finance2023','20-march-2023',900000,'c',103);
 
 select project101.pname,dept101.* from project101,dept101 where project101.dno=dept101.dno and project101.status ='c';
+
+SELECT dept101.dname, SUM(project101.budget) AS department_budget FROM dept101,project101 WHERE dept101.dno = project101.dno GROUP BY dept101.dname;
+
+select project101.pname,dept101.dname from project101,dept101 where project101.dno=dept101.dno and project101.status ='I';
+
+select dept101.dname from project101,dept101 where project101.dno=dept101.dno and project101.budget > 50000;
+
+select project101.pname from project101,dept101 where project101.dno=dept101.dno and dept101.hod='Mr.desai';
+
+
+
