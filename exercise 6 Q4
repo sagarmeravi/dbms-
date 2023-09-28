@@ -1,0 +1,29 @@
+create table dept101(
+	dno number(3) primary key,
+    dname varchar2(15),
+    hod varchar2(15)
+);
+create table project101(
+	pno number(3) primary key,
+    pname varchar2(15),
+    sdate date,
+    budget number(10),
+    status char(1)check(status in('c','P','I')),
+    dno number(3) references dept101(dno) on delete cascade
+);
+--department 
+insert into dept101 values(101,'sales','Mr.ronit');
+insert into dept101 values(102,'marketing','Mr.raghav');
+insert into dept101 values(103,'accounting','Mr.yadav');
+select * from dept101
+--project
+insert into project101 values(201,'MahaSales','01-march-2023',800000,'c',101);
+insert into project101 values(202,'New_year_sales','19-march-2023',900000,'P',101);
+insert into project101 values(203,'2024_sales','17-april-2023',900000,'I',101);
+
+insert into project101 values(204,'Marketing Yudh','19-march-2023',900000,'P',102);
+insert into project101 values(205,'marketing mania','19-september-2023',800000,'I',102);
+
+insert into project101 values(206,'Finance2023','20-march-2023',900000,'c',103);
+
+select project101.pname,dept101.* from project101,dept101 where project101.dno=dept101.dno and project101.status ='c';
