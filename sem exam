@@ -1,0 +1,41 @@
+create table book34(
+    bkno number(3) primary key,
+    title varchar2(15),
+    auth varchar2(15),
+    price number check(price>0),
+    yp number(4)
+);
+create table cust34(
+    cid number(3) primary key,
+    cname varchar2(15),
+    addr varchar2(15)
+);
+create table bc34(
+    bkno number(3) references book34(bkno) on delete cascade,
+    cid number(3) references cust34(cid) on delete cascade,
+    quan number(7)
+);
+
+insert into book34 values(101,'deep work','cal newport',500,2017);
+insert into book34 values(102,'zero to one','peter theil',600,2013);
+insert into book34 values(103,'atomic habbits','james clear',700,2018);
+select * from bc34;
+
+insert into cust34 values(1,'hardik','mumbai');
+insert into cust34 values(2,'raghav','baramati');
+insert into cust34 values(3,'manohar','pune');
+insert into cust34 values(4,'bandu','pune');
+insert into cust34 values(5,'rithvik','mumbai');
+
+insert into bc34 values(101,1,2);
+insert into bc34 values(101,2,1);
+insert into bc34 values(102,3,2);
+insert into bc34 values(103,3,4);
+insert into bc34 values(102,4,2);
+insert into bc34 values(103,5,2);
+
+select * from cust34 where addr ='mumbai';
+select * from book34 order by auth;
+select cust34.cname from bc34,cust34,book34 where bc34.bkno = book34.bkno and bc34.cid = cust34.cid and book34.yp =2013;
+select cust34.cname from bc34,cust34,book34 where bc34.bkno = book34.bkno and bc34.cid = cust34.cid and bc34.quan > 3;
+
