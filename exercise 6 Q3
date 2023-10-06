@@ -6,10 +6,10 @@ loc varchar2(15)
 insert into dept103 values(1,'sales','baramati');
 insert into dept103 values(2,'marketing','baramati');
 insert into dept103 values(3,'compscience','baramati');
-
+select * from dept103;
 create table emp103(
-    emp_no number(3) primary key,
-    emp_name varchar2(15),
+    empno number(3) primary key,
+    empname varchar2(15),
     addr varchar2(15),
     sal number(10)check(sal>0),
     desg varchar2(15),
@@ -22,4 +22,13 @@ insert into emp103 values(104,'manish','baramati',30000,'assistant',3);
 insert into emp103 values(105,'taher','baramati',10000,'clerk',3);
 
 select sum(emp103.sal) from emp103,dept103 where emp103.deptno=dept103.deptno and dept103.deptname='compscience';
-select dept103.deptname from emp103,dept103 where emp103.deptno=dept103.deptno and emp103.sal>10000;
+select distinct dept103.deptname from emp103,dept103 where emp103.deptno=dept103.deptno and emp103.sal>10000;
+select count(emp103.empno) from emp103,dept103 where emp103.deptno=dept103.deptno;
+select dept103.deptname, max(emp103.sal) FROM emp103, dept103 WHERE emp103.deptno = dept103.deptno GROUP BY dept103.deptname;
+select * FROM emp103 WHERE emp103.deptno = dept103.deptno group by dept103.deptname;
+
+
+
+
+
+
