@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>EXC-2-SET B Q3</title>
+</head>
+
+<body>
+<ol>
+    <li>coffee</li>
+    <li>tea</li>
+        <ol type="a">
+            <li>green tea</li>
+            <li>black tea</li>
+                <ol type="i">
+                    <li>africa</li>
+                    <li>china</li>
+                </ol>
+    <li>milk</li>
+       </ol>
+</ol>
+</body>
+</html>
