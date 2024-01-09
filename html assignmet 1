@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>EXC-2-SET B Q3</title>
+</head>
+
+<body>
+
+<ul>
+    <li>honda</li>
+        <ul type="square">
+            <li>petrol</li>
+            <ol>
+                <li>honda city</li>
+                <li>brio</li>
+            </ol>
+        </ul>
+        <ul type="square">
+            <li>diesel</li>
+            <ol>
+                <li>amaze</li>
+                <li>brio</li>
+            </ol>
+        </ul>
+    <li>maruti suzuki</li>
+    <ul type="square">
+        <li>petrol</li>
+        <ol>
+            <li>swift</li>
+            <li>brio</li>
+        </ol>
+    </ul>
+    <ul type="square">
+        <li>diesel</li>
+        <ol>
+            <li>swift-dezire</li>
+        </ol>
+    </ul>
+</ul>
+</body>
+
+</html>
